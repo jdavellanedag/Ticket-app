@@ -41,7 +41,7 @@ export const RouterPage = () => {
               <Route path="/queue" component={Queue} />
               <Route path="/create" component={CreateTicket} />
               <Route path="/desktop" component={Desktop} />
-              <Redirect path="/getin" />
+              <Redirect to="/getin" />
             </Switch>
           </Content>
         </Layout>
