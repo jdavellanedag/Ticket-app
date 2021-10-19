@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row, Typography, List, Card, Tag, Divider } from "antd";
+import { useMenuState } from "../hooks/useMenuState";
 
 const { Title, Text } = Typography;
 
@@ -42,6 +43,8 @@ const data = [
 ];
 
 export const Queue = () => {
+  useMenuState(true);
+
   return (
     <>
       <Title level={1}>Atendiendo al cliente</Title>

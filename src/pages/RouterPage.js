@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Layout, Menu } from "antd";
 import { UserOutlined, VideoCameraOutlined, UploadOutlined } from "@ant-design/icons";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
@@ -6,14 +6,17 @@ import { GetIn } from "./GetIn";
 import { Queue } from "./Queue";
 import { CreateTicket } from "./CreateTicket";
 import { Desktop } from "./Desktop";
+import { UiContext } from "../context/UiContext";
 
 const { Sider, Content } = Layout;
 
 export const RouterPage = () => {
+  const { menuState } = useContext(UiContext);
+
   return (
     <Router>
       <Layout style={{ height: "100vh" }}>
-        <Sider collapsedWidth="0" breakpoint="md">
+        <Sider collapsedWidth="0" breakpoint="md" hidden={menuState}>
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1" icon={<UserOutlined />}>

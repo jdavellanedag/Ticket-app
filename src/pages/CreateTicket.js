@@ -1,10 +1,13 @@
 import React from "react";
 import { Row, Col, Typography, Button, Divider } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
+import { useMenuState } from "../hooks/useMenuState";
 
 const { Title, Text } = Typography;
 
 export const CreateTicket = () => {
+  useMenuState(true);
+
   const createTicket = () => {
     console.log("Nuevo ticket");
   };
