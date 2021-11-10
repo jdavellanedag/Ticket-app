@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Col, Row, Typography, List, Card, Tag, Divider } from "antd";
 import { useMenuState } from "../hooks/useMenuState";
 import { SocketContext } from "../context/SocketContext";
+import { getLasts } from "../helpers/getLasts";
 
 const { Title, Text } = Typography;
 
@@ -19,6 +20,10 @@ export const Queue = () => {
       socket.off("ticket-assigned");
     };
   }, [socket]);
+
+  useEffect(() => {
+    getLasts().then(setTickets);
+  }, []);
 
   return (
     <>
@@ -49,7 +54,7 @@ export const Queue = () => {
             renderItem={(item) => (
               <List.Item>
                 <List.Item.Meta
-                  title={`Ticket No. ${item.ticketNo}`}
+                  title={`Ticket No. ${item.number}`}
                   description={
                     <>
                       <Text type="secondary">En el escritorio: </Text>
